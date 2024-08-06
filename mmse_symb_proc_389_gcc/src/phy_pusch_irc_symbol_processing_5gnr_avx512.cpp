@@ -1958,14 +1958,17 @@ int32_t bblib_pusch_irc_symbol_processing_detection(
         printf("bblib_pusch_symbol_processing_avx512: Error! nSubCarrier == 0\n");
         return n_return;
     }
-
+#if 0
         if (4 == nRxAnt ){
             mimo_mmse_llr_avx512_interp<4, 4, T>(request, response);
             n_return = 0;
         } else if(8 == nRxAnt){
             mimo_mmse_llr_avx512_interp<8, 8, T>(request, response);
             n_return = 0;
-        } else if(16 == nRxAnt){
+        } else if(16 == nRxAnt)
+#endif
+        
+        {
             mimo_mmse_llr_avx512_interp<16, 8, T>(request, response);
             n_return = 0;
         }

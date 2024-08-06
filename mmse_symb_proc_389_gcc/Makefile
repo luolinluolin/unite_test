@@ -2,6 +2,9 @@
 CXX = gcc 
 
 CPP_FLAG = -D_BBLIB_AVX512_ -O3 -DNDEBUG -std=c++17 -Wall -lstdc++ -mavx512vbmi -mgfni -Wa,-muse-unaligned-vector-move --save-temps -Wno-unknown-pragmas -Wno-maybe-uninitialized -Wno-uninitialized -Wno-sign-compare -Wno-array-bounds -lm
+CPP_FLAG += -fno-fast-math
+# CPP_FLAG += -ffast-math
+# CPP_FLAG += -fno-reciprocal-math
 ifeq ($(spr),1)
 OUTPUT=spr_test
 #CPP_FLAG = -D_BBLIB_AVX512_ -D_BBLIB_SPR_ -march=sapphirerapids -O3 -DNDEBUG -std=c++17 -lpthread -mintrinsic-promote -Wno-c++11-narrowing -Wall -D_GNU_SOURCE -lstdc++
